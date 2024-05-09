@@ -1,0 +1,53 @@
+import os
+
+matriz = [['😊','💩','😊','😊','😊'],
+          ['😊','😊','💩','😊','💩'],
+          ['😊','💩','😊','😊','😊'],
+          ['💩','😊','😊','😊','💩'],
+          ['😊','😊','😊','💩','😊']]
+
+matriz2 = [['-','-','-','-','-'],
+           ['-','-','-','-','-'],
+           ['-','-','-','-','-'],
+           ['-','-','-','-','-'],
+           ['-','-','-','-','-']]
+
+siu = '😊'
+nou = '💩'
+
+def fnt_limpiar_matriz():
+    os.system('cls')
+    print('el que lo lea es gay (Dulfran no)')
+    print('autor: Darwin Varila')
+
+def fnt_agregar_matriz(x, y):
+    global sw
+    if matriz[x][y] == '😊':
+        matriz2[x][y] = '😊'
+        input('buena rey')
+    elif matriz[x][y] == '💩':
+        matriz2[x][y] = '💩'
+        input('jajajaj tonto')
+        fnt_limpiar_matriz()
+        fnt_imprimir_matriz()
+        print('¡perdiste!')
+        sw = False
+
+def fnt_imprimir_matriz():
+    os.system('cls')
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            print(matriz2[i][j], end=' ')
+        print()
+    print()
+
+sw = True
+while sw:
+    fnt_limpiar_matriz()
+    fnt_imprimir_matriz()
+    fila = int(input('fila: '))
+    columna = int(input('columna: '))
+    if fila < 0 or fila >= len(matriz) or columna < 0 or columna >= len(matriz[0]):
+        print('¡ fuera de límites!')
+    else:
+        fnt_agregar_matriz(fila, columna)
